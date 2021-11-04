@@ -7,8 +7,8 @@ var particle = {
   radius: 10,
   mass: 1,
   gravity: null,
-  bounce: 0.9,
-  friction: 1,
+  bounce: -0.9,
+  friction: 0.999,
   springs: null,
   gravitations: null,
 

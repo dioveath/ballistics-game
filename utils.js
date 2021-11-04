@@ -54,6 +54,21 @@ var utils = {
     return (utils.distanceXY(c0.x, c0.y, c1.x, c1.y) < (c0.radius + c1.radius));
   },
 
+  blockCircle: function(c0, c1){
+    var dx = c1.x - c0.x,
+        dy = c1.y - c0.y,
+        dist = Math.sqrt(dx * dx + dy * dy),
+        angle = Math.atan2(dy, dx);
+        radii = c0.radius + c1.radius;
+    if(dist < radii){
+      overlapDist = radii - dist;
+      c0.x -= Math.cos(angle) * overlapDist;
+      c0.y -= Math.sin(angle) * overlapDist;
+      return true;
+    }
+    return false;
+  },
+
   inRange: function(value, min, max){
     return (value >= Math.min(min, max) && value <= Math.max(min, max));
   },
